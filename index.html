@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NfcStyle</title>
+    <link rel="icon" href="Logo.png"> <!-- Добавляем иконку для вкладки -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Используемый шрифт */
+            text-align: center; /* Выравнивание текста по центру */
+        }
+
+        #nfcData {
+            font-size: 32px; /* Размер шрифта */
+            margin-bottom: 20px; /* Отступ снизу */
+        }
+
+        #bankLogo {
+            width: 50px; /* Ширина картинки */
+            vertical-align: middle; /* Выравнивание картинки по вертикали */
+        }
+
+        #copyButton {
+            font-size: 18px; /* Размер шрифта кнопки */
+            padding: 10px 20px; /* Внутренние отступы кнопки */
+            border: none; /* Убираем границы кнопки */
+            border-radius: 20px; /* Задаем закругленные углы */
+            background-color: #000000; /* Цвет фона кнопки */
+            color: white; /* Цвет текста кнопки */
+            cursor: pointer; /* Изменяем курсор при наведении на кнопку */
+            transition: all 0.3s ease; /* Анимация при наведении на кнопку */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Тень кнопки */
+        }
+
+        #copyButton:hover {
+            background-color: #C0C0C0; /* Изменяем цвет фона при наведении на кнопку */
+            color: #fff; /* Изменяем цвет текста при наведении */
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5); /* Изменяем тень при наведении */
+        }
+
+        #copyButton:active {
+            background-color: #808080; /* Изменяем цвет фона при нажатии на кнопку */
+        }
+    </style>
+</head>
+<body>
+    <img id="bankLogo" src="Mono.png" alt="Bank Logo"> <!-- Изображение банковской эмблемы -->
+    <div id="nfcData">5375414110712154</div>
+    <button id="copyButton" onclick="copyToClipboard()">Копіювати</button>
+
+    <script>
+        function copyToClipboard() {
+            const nfcData = document.getElementById('nfcData').innerText;
+            navigator.clipboard.writeText(nfcData)
+                .then(() => {
+                    alert('Номер картки скопійовано');
+                })
+                .catch(err => {
+                    console.error('Не вдалось скопіювати номер картки: ', err);
+                });
+        }
+    </script>
+</body>
+</html>
